@@ -1,0 +1,114 @@
+/* * FORCE FULL WIDTH NAVBAR
+ * Use !important to override Mobirise's auto-generated pill shapes.
+ */
+html {
+    /* Standard browser default is 16px. 90% of 16px is 14.4px */
+    font-size: 90%; 
+}
+.navbar .container,
+.navbar-dropdown .container,
+[class^="cid-"] .navbar .container {
+    min-width: 100vw !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    border-radius: 0 !important;
+    
+    /* Adds a little padding so the logo and menu don't touch the absolute edges */
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+}
+
+/* Ensure the gap on the sides is completely removed on mobile devices */
+@media (max-width: 992px) {
+    .navbar .container,
+    .navbar-dropdown .container,
+    [class^="cid-"] .navbar .container {
+        width: 100vw !important;
+        min-width: 100vw !important;
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+        margin-top: 0 !important;
+    }
+}
+/* =========================================
+   1. FORCE FULL WIDTH NAVBAR
+   ========================================= */
+.navbar .container,
+.navbar-dropdown .container,
+[class^="cid-"] .navbar .container {
+    min-width: 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-top: 0 !important;
+    border-radius: 0 !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+}
+
+/* =========================================
+   2. PURE CSS DROPDOWN (DESKTOP ONLY)
+   ========================================= */
+@media (min-width: 992px) {
+    
+    /* A. Hide all menus by default, overriding any buggy JS inline styles */
+    [class^="cid-"] .navbar .dropdown-menu {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        transition: none !important; /* Kills JS animation lag */
+    }
+
+    /* B. Show ONLY the menu currently being hovered */
+    [class^="cid-"] .navbar .nav-item.dropdown:hover > .dropdown-menu,
+    [class^="cid-"] .navbar .dropdown-submenu:hover > .dropdown-menu {
+        display: flex !important; /* Mobirise submenus rely on flexbox */
+        flex-direction: column;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+
+    /* C. Fix the Disappearing Gap */
+    [class^="cid-"] .navbar .dropdown-submenu {
+        position: relative !important;
+    }
+    
+    /* Force sub-menu to overlap the parent slightly so the mouse never drops */
+    [class^="cid-"] .navbar .dropdown-submenu > .dropdown-menu {
+        top: 0 !important;
+        left: 100% !important;
+        margin-left: -2px !important; /* Creates a 2px overlap */
+        margin-top: 0 !important;
+    }
+
+    /* D. The Invisible Hover Bridge */
+    /* Adds a transparent block between menus to make the hover area wider */
+    [class^="cid-"] .navbar .dropdown-submenu::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -15px; 
+        width: 20px;
+        height: 100%;
+        background: transparent;
+        z-index: 10;
+    }
+}
+
+/* =========================================
+   3. MOBILE FULL WIDTH PADDING FIX
+   ========================================= */
+@media (max-width: 991px) {
+    .navbar .container,
+    .navbar-dropdown .container,
+    [class^="cid-"] .navbar .container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    /* On mobile, we MUST let JS handle the menus because there is no 'hover' on touch screens */
+}

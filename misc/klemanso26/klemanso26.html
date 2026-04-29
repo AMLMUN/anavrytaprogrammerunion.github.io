@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>KLEMANSO 26 SIMULATOR</title>
+<style>
+body {
+font-family: sans-serif;
+text-align: center;
+align: center;
+}
+#box {
+box-shadow: 5px 5px 5px grey;
+background-color: #EEEEEE;
+width: 500px;
+margin: auto;
+}
+.bu {
+box-shadow: 5px 5px 5px grey;
+background-color: black;
+color: white;
+}
+#title {
+text-shadow: 5px 5px 5px grey;
+}
+#scoretable {
+box-shadow: 5px 5px 5px grey;
+background-color: #EEEEEE;
+width: 500px;
+margin: auto;
+}
+#imagetable {
+width: 500px;
+margin: auto;
+}
+</style>
+</head>
+<body>
+<h1 id="title">KLEMANSO 26 SIMULATOR</h1>
+<table id="imagetable">
+<tr>
+<td><img src="gkonos.jpg"/></td>
+<td><img src="barmaxizoglou.jpg" width="359" height="239"/></td>
+<tr>
+<td>Nikos Gkonos (player)</td>
+<td>Babis Barmaxizoglou / Eugene Rogkavidis</td>
+</tr>
+<tr>
+<td id="gkonosmagnets">YOUR MAGNETS ARE: 26</td>
+<td id="mparmaxizogloumagnets">HIS MAGNETS ARE: 26</td>
+</tr>
+<tr>
+<td id="gkonosgaps">YOUR GAPS ARE: 00</td>
+<td id="mparmaxizoglougaps">HIS GAPS ARE: 00</td>
+</tr>
+</table>
+<p id = "babis">Babis is currently NOT attacking you</p>
+<p id = "defend">You did NOT defend</p>
+<audio controls id="gkonos_win" src="gkonos_win.mp3" controls style="display:none;"></audio>
+<audio controls id="babis_win" src="babis_win.mp3" controls style="display:none;"></audio>
+<audio controls id="babis_hit" src="babis_hit.mp3" controls style="display:none;"></audio>
+<script>
+var gkonos_win = document.getElementById("gkonos_win");
+var babis_win = document.getElementById("babis_win");
+var checked = false;
+function update (scoretext, gaptext, scoretext2, gaptext2, score, gaps, score2, gaps2) {
+	if (gaps < 26 && gaps2 < 26) {
+	if (score >= 10) {
+		document.getElementById("gkonosmagnets").innerHTML = scoretext.substring(0, scoretext.length - 2) + score.toString();
+	} else {
+		document.getElementById("gkonosmagnets").innerHTML = scoretext.substring(0, scoretext.length - 2) + "0" + score.toString();
+	}
+	if (score2 >= 10) {
+		document.getElementById("mparmaxizogloumagnets").innerHTML = scoretext2.substring(0, scoretext2.length - 2) + score2.toString();
+	} else {
+		document.getElementById("mparmaxizogloumagnets").innerHTML = scoretext2.substring(0, scoretext2.length - 2) + "0" + score2.toString();
+	}
+	if (gaps >= 10) {
+		document.getElementById("gkonosgaps").innerHTML = gaptext.substring(0, gaptext.length - 2) + gaps.toString();
+	} else {
+		document.getElementById("gkonosgaps").innerHTML = gaptext.substring(0, gaptext.length - 2) + "0" + gaps.toString();
+	}
+	if (gaps2 >= 10) {
+		document.getElementById("mparmaxizoglougaps").innerHTML = gaptext2.substring(0, gaptext2.length - 2) + gaps2.toString();
+	} else {
+		document.getElementById("mparmaxizoglougaps").innerHTML = gaptext2.substring(0, gaptext2.length - 2) + "0" + gaps2.toString();
+	}
+	} else if (gaps >= 26 && !checked) {
+		document.getElementById("gkonosmagnets").innerHTML = scoretext.substring(0, scoretext.length - 2) + "00";
+		document.getElementById("gkonosgaps").innerHTML = gaptext.substring(0, gaptext.length - 2) +  "26";
+        babis_win.play();
+		alert("Sadly, your masonic lodge has collapsed due to the extreme number of gaps you have, combined with your lack of magnets.");
+        checked = true;
+
+	} else if (gaps2 >= 26 && !checked) {
+		document.getElementById("mparmaxizogloumagnets").innerHTML = scoretext2.substring(0, scoretext2.length - 2) + "00";
+		document.getElementById("mparmaxizoglougaps").innerHTML = gaptext2.substring(0, gaptext2.length - 2) +  "26";
+        gkonos_win.play();
+		alert("FINALLY! KLEMANSO 26 HAS FALLEN! You now rule all of Neos Kosmos! Freemasons on TOP!");
+        checked = true;
+	}
+}
+alert("Welcome to the Klemanso 26 simulator!");
+alert("You, the player, is Nikos Gkonos, a permanent inhabitant of Il Toto and leader of the masonic lodge in there, opposite to Klemanso 26, the last place resisting your rule.");
+alert("Your aim is to destroy Babis Barmaxizoglou, who inhabits Klemanso 26, and take his home, to complete the rule of freemasons over Neos Kosmos.");
+alert("In order to do that, you need to attack him with your magnets. But be careful, because losing magnets will give you gaps! And if you have a lot of gaps, then you will lose, as your masonic lodge will collapse!");
+alert("Babis, however, will attack you with his magnets, which will double the number of gaps you already have. To counter them, you need to use a magnet of yours and his gaps will double instead of yours.");
+alert("Good luck, mr Gkonos. We are sure that Eugene Rogkavidis will not last.");
+function changeattack() {
+	var parameters = [" NOT ", " "];
+		if (document.getElementById("babis").innerHTML == "Babis is currently attacking you" && document.getElementById("defend").innerHTML == "You did NOT defend") {
+			var scoretext = document.getElementById("gkonosmagnets").innerHTML;
+			var gaptext = document.getElementById("gkonosgaps").innerHTML;
+			var scoretext2 = document.getElementById("mparmaxizogloumagnets").innerHTML;
+			var gaptext2 = document.getElementById("mparmaxizoglougaps").innerHTML;
+			var score = Number(scoretext.slice(-2));
+			var gaps = Number(gaptext.slice(-2));
+			var score2 = Number(scoretext2.slice(-2));
+			var gaps2 = Number(gaptext2.slice(-2));
+			gaps = gaps * 2;
+			update(scoretext, gaptext, scoretext2, gaptext2, score, gaps, score2, gaps2);
+		}
+		var index = Math.floor(Math.random() * parameters.length);
+		document.getElementById("babis").innerHTML = "Babis is currently" + parameters[index] + "attacking you";
+		document.getElementById("defend").innerHTML = "You did NOT defend";
+		
+
+}
+// Custom sleep function
+const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
+
+// Using the sleep function
+const delayedLog = async () => {
+  while (true) {
+  await sleep(1000);
+  changeattack();
+  }
+};
+
+delayedLog();
+</script>
+
+<button class="bu" onclick=
+'
+    var babis_hit = document.getElementById("babis_hit");
+	var scoretext = document.getElementById("gkonosmagnets").innerHTML;
+	var gaptext = document.getElementById("gkonosgaps").innerHTML;
+	var scoretext2 = document.getElementById("mparmaxizogloumagnets").innerHTML;
+	var gaptext2 = document.getElementById("mparmaxizoglougaps").innerHTML;
+	var score = Number(scoretext.slice(-2));
+	var gaps = Number(gaptext.slice(-2));
+	var score2 = Number(scoretext2.slice(-2));
+	var gaps2 = Number(gaptext2.slice(-2));
+	var diff = Math.floor(Math.random() * 2) + 1;
+	score -= diff;
+	score2 -= diff - 1;
+	gaps += diff;
+	gaps2 += diff - 1;
+    babis_hit.play();
+	update(scoretext, gaptext, scoretext2, gaptext2, score, gaps, score2, gaps2);
+'
+>Attack Babis with magnet</button>
+<button class="bu" onclick=
+'    
+    var babis_hit = document.getElementById("babis_hit");
+	var scoretext = document.getElementById("gkonosmagnets").innerHTML;
+	var gaptext = document.getElementById("gkonosgaps").innerHTML;
+	var scoretext2 = document.getElementById("mparmaxizogloumagnets").innerHTML;
+	var gaptext2 = document.getElementById("mparmaxizoglougaps").innerHTML;
+	var score = Number(scoretext.slice(-2));
+	var gaps = Number(gaptext.slice(-2));
+	var score2 = Number(scoretext2.slice(-2));
+	var gaps2 = Number(gaptext2.slice(-2));
+	if (document.getElementById("babis").innerHTML == "Babis is currently attacking you") 
+	{
+        babis_hit.play();
+		gaps2 = gaps2 * 2;
+		document.getElementById("defend").innerHTML = "You defended";
+		document.getElementById("babis").innerHTML = "Babis is currently NOT attacking you";
+	}
+	update(scoretext, gaptext, scoretext2, gaptext2, score, gaps, score2, gaps2);	
+'
+>Defend from Babis with magnet</button>
+<button class="bu" onclick=
+'
+function augmentscore(plusscore) {
+		var scoretext = document.getElementById("gkonosmagnets").innerHTML;
+		var score = Number(scoretext.slice(-2));
+		score += plusscore;
+		gaps -= plusscore;
+		if (score >= 10) {
+		document.getElementById("gkonosmagnets").innerHTML = scoretext.substring(0, scoretext.length - 2) + score.toString();
+		} else {
+		document.getElementById("gkonosmagnets").innerHTML = scoretext.substring(0, scoretext.length - 2) + "0" + score.toString();
+		}
+	}
+	var quests = ["Insert a new name for the doorbell of Klemanso 26:", "Say the real name of Dioni:", "Make a graffiti:"];
+	var answers = ["Eugene Rogkavidis", "Ariel", "Gkonos666"];
+	var altanswers = ["Evgenios Rogkavidis", "Ariel", "Gkonos 666"];
+	var results = [10, 5, 6];
+	var index = Math.floor(Math.random() * quests.length);
+	var quest = prompt(quests[index]);
+	if (quest == answers[index] || quest == altanswers[index]) {
+		augmentscore(results[index]);
+	}
+	update(scoretext, gaptext, scoretext2, gaptext2, score, gaps, score2, gaps2);
+'
+>Quest</button>
+</body>
+</html>

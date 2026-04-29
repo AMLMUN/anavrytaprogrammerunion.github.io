@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ESKA simulator</title>
+<style>
+body {
+font-family: sans-serif;
+text-align: center;
+align: center;
+}
+#box {
+box-shadow: 5px 5px 5px grey;
+background-color: #EEEEEE;
+width: 500px;
+margin: auto;
+}
+#generator {
+box-shadow: 5px 5px 5px grey;
+background-color: black;
+color: white;
+}
+#title {
+text-shadow: 5px 5px 5px grey;
+}
+#scoretable {
+box-shadow: 5px 5px 5px grey;
+background-color: #EEEEEE;
+width: 500px;
+margin: auto;
+}
+</style>
+</head>
+<body>
+<h1 id="title">ESKA simulator (A1 Paidon)</h1>
+<div id="box">
+<h3 id ="teams">Teams will appear here.</p>
+<h3 id = "score">Score will appear here.</p>
+<h3 id = "victor">Who won will appear here.</p>
+</div>
+<button id="generator" type="button" onclick='
+function sortTable() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("scoretable");
+  switching = true;
+  /* Make a loop that will continue until
+  no switching has been done: */
+  while (switching) {
+    // Start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /* Loop through all table rows (except the
+    first, which contains table headers): */
+    for (i = 1; i < (rows.length - 1); i++) {
+      // Start by saying there should be no switching:
+      shouldSwitch = false;
+      /* Get the two elements you want to compare,
+      one from current row and one from the next: */
+      x = rows[i].getElementsByTagName("TD")[1];
+      y = rows[i + 1].getElementsByTagName("TD")[1];
+      // Check if the two rows should switch place:
+      if (Number(x.innerHTML) < Number(y.innerHTML)) {
+        // If so, mark as a switch and break the loop:
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /* If a switch has been marked, make the switch
+      and mark that a switch has been done: */
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+var teams = ["Peristeri", "PAO", "AEK", "Platon", "Doukas", "Pagrati", "Panerythraikos", "Aigaleo", "Aris Petroupolis", "Ag. Nikolaos Pallinis", "Deree", "Apollo Smyrna"];
+var team1 = teams[Math.floor(Math.random() * teams.length)];
+var team2 = teams[Math.floor(Math.random() * teams.length)];
+while (team1 == team2) {
+	team2 = teams[Math.floor(Math.random() * teams.length)];
+}
+document.getElementById("teams").innerHTML = team1 + " - " + team2;
+var score1 = Math.floor(Math.random() * 103);
+var score2 = Math.floor(Math.random() * 103);
+var pts1 = Number(document.getElementById(team1 + "Score").innerHTML);
+var pts2 = Number(document.getElementById(team2 + "Score").innerHTML);
+while (score1 == score2 || score1 < 50 || score2 < 50 || Math.abs(score1 - score2) > 30) {
+	score1 = Math.floor(Math.random() * 103);
+	score2 = Math.floor(Math.random() * 103);
+}
+document.getElementById("score").innerHTML = score1.toString() + " - " + score2.toString();
+if (score1 > score2) {
+document.getElementById("victor").innerHTML = team1 + " won";
+pts1 += 2;
+pts2 += 1;
+} else {
+document.getElementById("victor").innerHTML = team2 + " won";
+pts1 += 1;
+pts2 += 2;
+}
+document.getElementById(team1 + "Score").innerHTML = pts1.toString();
+document.getElementById(team2 + "Score").innerHTML = pts2.toString();
+sortTable();
+'>Click me!
+</button>
+<table id="scoretable">
+<tr>
+<th>Team</th>
+<th>Score</th>
+</tr>
+<tr>
+<td>Peristeri</td>
+<td id="PeristeriScore">0</td>
+</tr>
+<tr>
+<td>PAO</td>
+<td id="PAOScore">0</td>
+</tr>
+<tr>
+<td>AEK</td>
+<td id="AEKScore">0</td>
+</tr>
+<tr>
+<td>Platon</td>
+<td id="PlatonScore">0</td>
+</tr>
+<tr>
+<td>Doukas</td>
+<td id="DoukasScore">0</td>
+</tr>
+<tr>
+<td>Pagrati</td>
+<td id="PagratiScore">0</td>
+</tr>
+<tr>
+<td>Panerythraikos</td>
+<td id="PanerythraikosScore">0</td>
+</tr>
+<tr>
+<td>Aigaleo</td>
+<td id="AigaleoScore">0</td>
+</tr>
+<tr>
+<td>Aris Petroupolis</td>
+<td id="Aris PetroupolisScore">0</td>
+</tr>
+<tr>
+<td>Ag. Nikolaos Pallinis</td>
+<td id="Ag. Nikolaos PallinisScore">0</td>
+</tr>
+<tr>
+<td>Deree</td>
+<td id="DereeScore">0</td>
+</tr>
+<tr>
+<td>Apollo Smyrna</td>
+<td id="Apollo SmyrnaScore">0</td>
+</tr>
+</table>
+</body>
+</html>
