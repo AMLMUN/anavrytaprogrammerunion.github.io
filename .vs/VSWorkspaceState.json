@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\assets",
+    "\\assets\\theme",
+    "\\assets\\theme\\css"
   ],
-  "SelectedNode": "\\unavailable.html",
+  "SelectedNode": "\\assets\\theme\\css\\style.css",
   "PreviewInSolutionExplorer": false
 }

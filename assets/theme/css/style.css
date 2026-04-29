@@ -61,7 +61,7 @@ section,
 .container,
 .container-fluid {
   position: relative;
-  word-wrap: break-word;
+  word-wrap: inherit;
 }
 
 a.mbr-iconfont:hover {
@@ -533,7 +533,7 @@ nav .mbr-section-btn {
 }
 
 .menu .navbar-brand {
-  display: -webkit-inline-flex;
+  display: -webkit-flex;
 }
 .menu .navbar-brand span {
   display: flex;
@@ -740,8 +740,8 @@ input[type=range] {
   display: flex;
 }
 
-.note-air-layout .dropup .dropdown-menu,
-.note-air-layout .navbar-fixed-bottom .dropdown .dropdown-menu {
+.note-air-layout .dropup .dropdown-menu, .note-air-layout .dropup .dropdown-submenu
+.note-air-layout .navbar-fixed-bottom .dropdown .dropdown-menu, .note-air-layout .navbar-fixed-bottom .dropdown .dropdown-submenu {
   bottom: initial !important;
 }
 
@@ -944,6 +944,19 @@ blockquote {
   display: block;
 }
 
+.dropdown-submenu .dropdown-submenu {
+  left: 100%;
+}
+
+.dropdown-item + .dropdown-submenu {
+  display: none;
+}
+
+.dropdown-item:hover + .dropdown-submenu,
+.dropdown-submenu:hover {
+  display: block;
+}
+
 @media (min-aspect-ratio: 16/9) {
   .mbr-video-foreground {
     height: 300% !important;
@@ -963,3 +976,4 @@ blockquote {
 	top: 0;
 	left: -2400px;
 }
+
