@@ -114,7 +114,7 @@ The folders are as follows:
 
 
 
-This is basically everything you need to know for the files. In general, do not edit the <head> sections unless you want to add more CSS/JS code. Also, keep the navbar (you will see a <section><nav>...</nav></section> block) and the bottom bar (last <section>...</section> block) as they are.
+This is basically everything you need to know for the files. In general, do not edit the <head> sections unless you want to add more CSS/JS code. Also, keep the navbar (you will see a < section >< nav >...< /nav >< /section > block) and the bottom bar (last < section >...< /section > block) as they are.
 
 
 
