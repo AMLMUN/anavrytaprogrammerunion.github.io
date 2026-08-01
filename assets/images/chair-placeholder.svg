@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title description">
+  <title id="title">Chair portrait placeholder</title>
+  <desc id="description">A neutral silhouette used until an official chair portrait is available.</desc>
+  <circle cx="120" cy="120" r="118" fill="#f2eeea" stroke="#ddd5ce" stroke-width="4"/>
+  <circle cx="120" cy="88" r="42" fill="#c8beb7"/>
+  <path d="M48 208c6-43 35-70 72-70s66 27 72 70" fill="#c8beb7"/>
+  <circle cx="120" cy="120" r="112" fill="none" stroke="#ffffff" stroke-width="3" opacity=".8"/>
+</svg>
