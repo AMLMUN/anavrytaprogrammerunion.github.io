@@ -1,6 +1,6 @@
-Welcome abroad.
+Welcome aboard.
 
-This is the official AMLMUN website repository. I am leaving you here a small documentation so that you can get started.
+This is the official AMLMUN website repository. I am leaving here a small documentation so that you can get started.
 
 All the main pages are located in the same level as this document. The first-level files are as follows:
 
@@ -12,7 +12,7 @@ All the main pages are located in the same level as this document. The first-lev
 
 \-announcements.html: the announcements page. While adding announcements, take GREAT care to put only up to 3 announcements in a row, otherwise the page's layout will eventually break and be utter hell.
 
-\-anycolouryoulike.php: the backfront of amend.html. For security reasons, I named it after the Pink Floyd (aka my favorite band) song "Any Colour You Like" so it's more undetectable by bots.
+\-anycolouryoulike.php: the backend of amend.html. For security reasons, I named it after the Pink Floyd (aka my favorite band) song "Any Colour You Like" so it's more undetectable by bots.
 
 \-archives.html: the archive page, the "archives" folder supposedly contains pages for each of the conferences, but in reality most of them do not exist.
 
