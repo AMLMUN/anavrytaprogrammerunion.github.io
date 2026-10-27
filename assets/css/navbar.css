@@ -3424,6 +3424,48 @@ html {
     cursor: not-allowed;
 }
 
+.study-guide-document-link {
+    display: inline-flex;
+    min-height: 2.75rem;
+    padding: 0.7rem 0.9rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--guides-red);
+    border-radius: 999px;
+    background: var(--guides-red);
+    color: #fff;
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 750;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.study-guide-document-link:hover,
+.study-guide-document-link:focus-visible {
+    background: #94131b;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.study-guide-document-link:focus-visible {
+    outline: 3px solid rgba(185, 24, 35, 0.28);
+    outline-offset: 3px;
+}
+
+.study-guide-document-download {
+    background: transparent;
+    color: var(--guides-red);
+}
+
+.study-guide-document-download:hover,
+.study-guide-document-download:focus-visible {
+    background: #f7e7e8;
+    color: var(--guides-red);
+}
+
 @media (max-width: 991px) {
     .study-guides-library {
         padding-top: 10rem;
