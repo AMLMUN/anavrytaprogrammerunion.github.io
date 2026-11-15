@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="assets/dropdown/css/style.css">
   <link rel="stylesheet" href="assets/socicon/css/styles.css">
   <link rel="stylesheet" href="assets/theme/css/style.css">
-<link rel="stylesheet" href="assets/css/navbar.css?v=schedule2">
+<link rel="stylesheet" href="assets/css/navbar.css?v=schedule3">
   <link rel="preload" href="https://fonts.googleapis.com/css?family=Inter+Tight:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter+Tight:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
   <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css?v=AKBTjb"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css?v=AKBTjb" type="text/css">
@@ -79,16 +79,16 @@
       <header class="schedule-heading">
         <p class="schedule-eyebrow">5th AML MUN · 2026</p>
         <h1 id="schedule-title">Conference Schedule</h1>
-        <p>The conference will take place across three days. The detailed programme is being prepared and will be added here once each session and time has been confirmed.</p>
+        <p>Plan your three days at the 5th AML MUN, from registration and opening ceremony through committee sessions, the General Assembly, and closing ceremony.</p>
         <div class="schedule-heading-actions">
-          <span class="conference-document-link conference-document-link-disabled" role="status">Programme PDF coming soon <span aria-hidden="true">•</span></span>
+          <a class="conference-document-link" href="schedule/5th%20AML%20MUN%20Schedule.pdf" download="5th-AML-MUN-Schedule.pdf">Download the schedule PDF <span aria-hidden="true">↓</span></a>
         </div>
       </header>
 
       <dl class="schedule-facts" aria-label="Conference schedule information">
         <div><dt>Dates</dt><dd>27–29 November 2026</dd></div>
         <div><dt>Venue</dt><dd>Model Lyceum of Anavryta</dd></div>
-        <div><dt>Status</dt><dd>Programme in preparation</dd></div>
+        <div><dt>Status</dt><dd id="schedule-live-status" aria-live="polite">Live schedule begins 27 November</dd></div>
       </dl>
     </div>
   </section>
@@ -97,8 +97,8 @@
     <div class="container schedule-container">
       <div class="schedule-days-heading">
         <p class="schedule-eyebrow">Three conference days</p>
-        <h2 id="schedule-days-title">Programme template</h2>
-        <p>Times and activities shown as placeholders will be replaced by the official programme.</p>
+        <h2 id="schedule-days-title"><span class="schedule-live-dot" aria-hidden="true"></span>Live Schedule</h2>
+        <p>All times are shown in local Athens time. The schedule may be adjusted by the Organising Team before the conference.</p>
       </div>
 
       <div class="schedule-days-grid">
@@ -108,9 +108,10 @@
             <time datetime="2026-11-27"><strong>Friday</strong>27 November 2026</time>
           </header>
           <ol class="schedule-slots">
-            <li><span>Time TBA</span><p>Programme item to be confirmed</p></li>
-            <li><span>Time TBA</span><p>Programme item to be confirmed</p></li>
-            <li><span>Time TBA</span><p>Programme item to be confirmed</p></li>
+            <li><span>15:00–16:00</span><p>Registration<sup>*</sup></p></li>
+            <li><span>16:00–17:00</span><p>Opening Ceremony<sup>*</sup></p></li>
+            <li><span>17:00–17:15</span><p>Transfer to Anavryta Model Lyceum</p></li>
+            <li><span>17:15–19:30</span><p>Committees in Session</p></li>
           </ol>
         </article>
 
@@ -120,26 +121,51 @@
             <time datetime="2026-11-28"><strong>Saturday</strong>28 November 2026</time>
           </header>
           <ol class="schedule-slots">
-            <li><span>Time TBA</span><p>Programme item to be confirmed</p></li>
-            <li><span>Time TBA</span><p>Programme item to be confirmed</p></li>
-            <li><span>Time TBA</span><p>Programme item to be confirmed</p></li>
+            <li><span>09:00–11:00</span><p>Committees in Session</p></li>
+            <li><span>11:00–11:30</span><p>Break</p></li>
+            <li><span>11:30–14:00</span><p>Committees in Session</p></li>
+            <li><span>14:00–15:00</span><p>Lunch in Groups and Group Photos</p></li>
+            <li><span>15:00–17:30</span><p>Committees in Session</p></li>
+            <li><span>17:30–18:00</span><p>Break</p></li>
+            <li><span>18:00–19:30</span><p>Committees in Session</p></li>
           </ol>
         </article>
 
-        <article class="schedule-day-card">
+        <article class="schedule-day-card schedule-day-card-sunday">
           <header>
             <span>Day 03</span>
             <time datetime="2026-11-29"><strong>Sunday</strong>29 November 2026</time>
           </header>
-          <ol class="schedule-slots">
-            <li><span>Time TBA</span><p>Programme item to be confirmed</p></li>
-            <li><span>Time TBA</span><p>Programme item to be confirmed</p></li>
-            <li><span>Time TBA</span><p>Programme item to be confirmed</p></li>
+          <ol class="schedule-slots schedule-slots-common">
+            <li><span>09:00–11:30</span><p>Committees in Session</p></li>
+            <li><span>11:30–12:00</span><p>Break</p></li>
+            <li><span>12:00–14:00</span><p>Committees in Session</p></li>
+            <li><span>14:00–15:00</span><p>Lunch in Groups and Group Photos</p></li>
+          </ol>
+          <div class="schedule-sunday-tracks" aria-label="Sunday afternoon programme">
+            <section class="schedule-track">
+              <h3>GA Committees</h3>
+              <ol class="schedule-slots">
+                <li><span>15:00–15:15</span><p>Transfer to Anavryta Model Junior High School<sup>*</sup></p></li>
+                <li><span>15:15–17:15</span><p>General Assembly in Session<sup>*</sup></p></li>
+                <li><span>17:15–17:30</span><p>Break</p></li>
+              </ol>
+            </section>
+            <section class="schedule-track">
+              <h3>Non-GA Committees</h3>
+              <ol class="schedule-slots">
+                <li><span>15:00–17:15</span><p>Committees in Session</p></li>
+                <li><span>17:15–17:30</span><p>Transfer to Anavryta Model Junior High School<sup>*</sup></p></li>
+              </ol>
+            </section>
+          </div>
+          <ol class="schedule-slots schedule-slots-closing">
+            <li><span>17:30–19:30</span><p>Closing Ceremony<sup>*</sup></p></li>
           </ol>
         </article>
       </div>
 
-      <p class="schedule-note"><span aria-hidden="true">●</span> The final schedule may be adjusted by the Organising Team before the conference.</p>
+      <p class="schedule-note"><span aria-hidden="true">●</span> <strong>Venue note:</strong> Registration, Opening Ceremony, General Assembly, and Closing Ceremony take place at Anavryta Model Junior High School. All other sessions take place at Anavryta Model Lyceum.</p>
     </div>
   </section>
 </main>
@@ -178,5 +204,46 @@
   
  <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
     <input name="animation" type="hidden">
+  <script>
+    (() => {
+      const status = document.getElementById('schedule-live-status');
+      const athensOffset = '+02:00';
+
+      const getScheduleTimes = (slot) => {
+        const date = slot.closest('.schedule-day-card').querySelector('time').dateTime;
+        const [start, end] = slot.querySelector('span').textContent.trim().split('–');
+        return {
+          start: new Date(`${date}T${start}:00${athensOffset}`),
+          end: new Date(`${date}T${end}:00${athensOffset}`)
+        };
+      };
+
+      const updateLiveSchedule = () => {
+        const now = new Date();
+        const slots = [...document.querySelectorAll('.schedule-slots li')];
+        const liveSlot = slots.find((slot) => {
+          const { start, end } = getScheduleTimes(slot);
+          return now >= start && now < end;
+        });
+
+        slots.forEach((slot) => slot.classList.toggle('is-live', slot === liveSlot));
+
+        if (liveSlot) {
+          status.textContent = `Live now · ${liveSlot.querySelector('p').textContent.trim()}`;
+          return;
+        }
+
+        const nextSlot = slots
+          .map((slot) => ({ slot, ...getScheduleTimes(slot) }))
+          .find(({ start }) => start > now);
+        status.textContent = nextSlot
+          ? `Next session · ${nextSlot.slot.querySelector('span').textContent.trim()}`
+          : 'Official schedule published';
+      };
+
+      updateLiveSchedule();
+      window.setInterval(updateLiveSchedule, 60000);
+    })();
+  </script>
   </body>
 </html>
